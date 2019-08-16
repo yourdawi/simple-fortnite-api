@@ -49,6 +49,7 @@ class User:
         self.Squad = Squad(self.StatsResult)
         self.Total = Total(self.StatsResult)
 
+
 class Solo:
 
     def __init__(self, statsresult):
@@ -189,7 +190,6 @@ class Squad:
 class Total:
 
     def __init__(self, statsresult):
-
         self.StatsResult = statsresult
 
         self.Kills = self.StatsResult["totals"]["kills"]
@@ -223,8 +223,18 @@ class Total:
         return self.KD
 
 
-def updateAPI():
-    pass
+class News:
+    responseBR = requests.request('GET', "https://fortnite-api.theapinetwork.com/br_motd/get",
+                                  headers=APIConnect.headers, data=APIConnect.payload, allow_redirects=False)
+    responseSTW = requests.request('GET', "https://fortnite-api.theapinetwork.com/stw_motd/get",
+                                   headers=APIConnect.headers, data=APIConnect.payload, allow_redirects=False)
+
+    NewsBR = json.loads(responseBR.text)
+    NewsSTW = json.loads(responseSTW.text)
+
+
+class Weapon:
+    WeaponList = json.loads(requests.request('GET', "https://fortnite-api.theapinetwork.com/weapons/get",headers=APIConnect.headers, data=APIConnect.payload, allow_redirects=False).text)
 
 
 def GetUser():
