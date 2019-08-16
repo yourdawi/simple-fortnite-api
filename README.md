@@ -2,7 +2,9 @@ This is a simple connection to fortniteapi.com
 
 You will need a key. (fortniteapi.com)
 
-Stats only at the moment.
+----
+Stats, News, Weapons @ the moment
+----
 
 You do not need program.py, it is an example.
 
