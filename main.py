@@ -247,7 +247,6 @@ def GetUser():
         uid = getItJson["data"]["uid"]
         global PlayerOne
         PlayerOne = User(nickname, uid, platform)
-        print(PlayerOne)
     except KeyError:
         GetUser()
         return False
