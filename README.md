@@ -13,8 +13,11 @@ I will add a feature to select another User soon.
 -----
 
 -Run the script
+
 -Enter your API Key
+
 -Select a Username & Platform
+
 -Build your own program or use program.py.
 
 ----
@@ -22,6 +25,10 @@ I will add a feature to select another User soon.
 PlayerOne is the instance, it will change later (testing right now).
 
 Solo = PlayerOne.Solo
+
 Duo = PlayerOne.Duo
+
 Suqad = PlayerOne.Squad
+
 Total = PlayerOne.Total
+
