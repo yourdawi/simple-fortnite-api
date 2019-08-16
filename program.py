@@ -9,13 +9,13 @@ def switchMode():
 
     if mode == "Solo" or mode == "Duo" or mode == "Squad":
         if mode == "Solo":
-            Amode = solo
+            Amode = PlayerOne.Solo
         if mode == "Duo":
-            Amode = duo
+            Amode = PlayerOne.Duo
         if mode == "Squad":
-            Amode = squad
+            Amode = PlayerOne.Squad
 
-        print("+++++ " + mode + " stats for user " + user.Nickname + " +++++")
+        print("+++++ " + mode + " stats for user " + PlayerOne.Nickname + " +++++")
         print("Kills: " + str(Amode.getKills()))
         placeA, textA = Amode.getTop1()
         print(textA + ": " + str(placeA))
@@ -29,9 +29,9 @@ def switchMode():
 
         switchMode()
     elif mode == "Total":
-        Amode = total
+        Amode = PlayerOne.Total
 
-        print("+++++ " + mode + " stats for user " + user.Nickname + " +++++")
+        print("+++++ " + mode + " stats for user " + PlayerOne.Nickname + " +++++")
         print("Kills: " + str(Amode.getKills()))
         print("Wins: " + str(Amode.getWins()))
         print("Winrate: " + str(Amode.getWinRate()))
