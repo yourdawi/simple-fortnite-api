@@ -3,13 +3,14 @@
 from main import *
 from PIL import Image
 import io
+from datetime import datetime
 
 
 def switchMode():
     mode = input("1 - Stats\n2 - News\n3- Weapon\n")
     if mode == "1":
         StatsMode = input("Solo, Duo, Squad or total?\n")
-        mode = StatsMode.capitalize()
+        StatsMode = StatsMode.capitalize()
 
         if StatsMode == "Solo" or StatsMode == "Duo" or StatsMode == "Squad":
             if StatsMode == "Solo":
@@ -30,6 +31,7 @@ def switchMode():
             print("Winrate: " + str(Amode.getWinRate()))
             print("Score: " + str(Amode.getScore()))
             print("Matches played: " + str(Amode.getMatchesPlayed()))
+            print("Last update: " + str(datetime.fromtimestamp(Amode.getLastUpdate())))
 
             switchMode()
         elif StatsMode == "Total":

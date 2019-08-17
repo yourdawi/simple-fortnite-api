@@ -4,6 +4,18 @@ import requests
 import json
 import os
 
+print(" .----------------.  .----------------.  .----------------.  .----------------.")
+print("| .--------------. || .--------------. || .--------------. || .--------------. |")
+print("| |  ________    | || |      __      | || | _____  _____ | || |     _____    | |")
+print("| | |_   ___ `.  | || |     /  \     | || ||_   _||_   _|| || |    |_   _|   | |")
+print("| |   | |   `. \ | || |    / /\ \    | || |  | | /\ | |  | || |      | |     | |")
+print("| |   | |    | | | || |   / ____ \   | || |  | |/  \| |  | || |      | |     | |")
+print("| |  _| |___.' / | || | _/ /    \ \_ | || |  |   /\   |  | || |     _| |_    | |")
+print("| | |________.'  | || ||____|  |____|| || |  |__/  \__|  | || |    |_____|   | |")
+print("| |              | || |              | || |              | || |              | |")
+print("| '--------------' || '--------------' || '--------------' || '--------------' |")
+print(" '----------------'  '----------------'  '----------------'  '----------------' ")
+
 authkey = False
 PlayerOne = None
 
@@ -71,6 +83,8 @@ class Solo:
 
         self.Score = self.StatsResult["stats"]["score_solo"]
 
+        self.LastUpdate = self.StatsResult["stats"]["lastmodified_solo"]
+
     def getKills(self):
         return self.Kills
 
@@ -95,6 +109,9 @@ class Solo:
     def getScore(self):
         return self.Score
 
+    def getLastUpdate(self):
+        return self.LastUpdate
+
 
 class Duo:
 
@@ -116,6 +133,8 @@ class Duo:
         self.Winrate = self.StatsResult["stats"]["winrate_duo"]
 
         self.Score = self.StatsResult["stats"]["score_duo"]
+
+        self.LastUpdate = self.StatsResult["stats"]["lastmodified_duo"]
 
     def getKills(self):
         return self.Kills
@@ -141,6 +160,9 @@ class Duo:
     def getScore(self):
         return self.Score
 
+    def getLastUpdate(self):
+        return self.LastUpdate
+
 
 class Squad:
     def __init__(self, statsresult):
@@ -161,6 +183,8 @@ class Squad:
         self.Winrate = self.StatsResult["stats"]["winrate_squad"]
 
         self.Score = self.StatsResult["stats"]["score_squad"]
+
+        self.LastUpdate = self.StatsResult["stats"]["lastmodified_squad"]
 
     def getKills(self):
         return self.Kills
@@ -185,6 +209,9 @@ class Squad:
 
     def getScore(self):
         return self.Score
+
+    def getLastUpdate(self):
+        return self.LastUpdate
 
 
 class Total:
@@ -234,7 +261,9 @@ class News:
 
 
 class Weapon:
-    WeaponList = json.loads(requests.request('GET', "https://fortnite-api.theapinetwork.com/weapons/get",headers=APIConnect.headers, data=APIConnect.payload, allow_redirects=False).text)
+    WeaponList = json.loads(
+        requests.request('GET', "https://fortnite-api.theapinetwork.com/weapons/get", headers=APIConnect.headers,
+                         data=APIConnect.payload, allow_redirects=False).text)
 
 
 def GetUser():
